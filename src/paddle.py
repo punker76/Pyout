@@ -3,7 +3,7 @@ import pygame
 from settings import *
 
 
-class Player(pygame.sprite.Sprite):
+class Paddle(pygame.sprite.Sprite):
     def __init__(self, pos, groups, obstacle_sprites):
         super().__init__()
         for g in groups:
