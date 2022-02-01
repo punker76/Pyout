@@ -30,7 +30,8 @@ class Game:
             self.level.run()
 
             # update screen
-            pygame.display.update()
+            # pygame.display.update() # allows to update a portion of the screen, instead of the entire area of the screen. Passing no arguments, updates the entire display
+            pygame.display.flip() # will update the contents of the entire display
 
             # refresh time
             self.clock.tick(FPS)
