@@ -1,3 +1,14 @@
+---
+
 Included files are released under the Creative Commons Attribution 3.0 license. Please attribute Code Inferno and optionally link to codeinferno.com.
 
 Assets originally created for Breakaway, play at http://www.newgrounds.com/portal/view/662805
+
+---
+
+Puzzle game graphics by Kenney Vleugels (www.kenney.nl)
+
+You may use these graphics in personal and commercial projects.
+Credit (www.kenney.nl) would be nice but is not mandatory.
+
+---

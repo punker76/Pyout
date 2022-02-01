@@ -3,12 +3,14 @@ import pygame
 from settings import *
 from tile import Tile
 from paddle import Paddle
+from ball import Ball
 from debug import debug
 
 
 class Level:
     def __init__(self):
         self.paddle = None
+        self.ball = None
 
         # get the display surface
         self.display_surface = pygame.display.get_surface()
@@ -31,9 +33,11 @@ class Level:
                     Tile((x, y), (self.visible_sprites, self.obstacle_sprites))
                 if col == 'p':
                     self.paddle = Paddle((x, y), (self.visible_sprites,), self.obstacle_sprites)
+                if col == 'b':
+                    self.ball = Ball((x, y), (self.visible_sprites,), self.obstacle_sprites)
 
     def run(self):
         # update and draw the game
         self.visible_sprites.draw(self.display_surface)
         self.visible_sprites.update()
-        debug(self.paddle.direction)
+        debug(self.ball.direction)

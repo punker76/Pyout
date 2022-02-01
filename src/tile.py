@@ -11,3 +11,4 @@ class Tile(pygame.sprite.Sprite):
         self.image = pygame.image.load('./graphics/test/s6.png').convert_alpha()
         self.image = pygame.transform.scale(self.image, (TILESIZE, TILESIZE))
         self.rect = self.image.get_rect(topleft=pos)
+        self.hitbox = self.rect
