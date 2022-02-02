@@ -18,6 +18,7 @@ class Level:
         # sprite group setup
         self.visible_sprites = pygame.sprite.Group()
         self.obstacle_sprites = pygame.sprite.Group()
+        self.movable_sprites = pygame.sprite.Group()
 
         # sprite setup
         self.create_map()
@@ -32,9 +33,9 @@ class Level:
                 if col == 'l':
                     Tile((x, y), (self.visible_sprites, self.obstacle_sprites))
                 if col == 'p':
-                    self.paddle = Paddle((x, y), (self.visible_sprites,), self.obstacle_sprites)
+                    self.paddle = Paddle((x, y), (self.visible_sprites, self.movable_sprites), self.obstacle_sprites)
                 if col == 'b':
-                    self.ball = Ball((x, y), (self.visible_sprites,), self.obstacle_sprites)
+                    self.ball = Ball((x, y), (self.visible_sprites,), self.obstacle_sprites, self.movable_sprites)
 
     def run(self):
         # update and draw the game

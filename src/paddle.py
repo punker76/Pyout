@@ -15,6 +15,7 @@ class Paddle(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = pygame.Rect(pos, (TILESIZE, TILESIZE)).center
         self.rect.size = self.image.get_size()
+        self.hitbox = self.rect
 
         self.direction = pygame.math.Vector2()
         self.speed = 8
