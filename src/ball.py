@@ -30,12 +30,19 @@ class Ball(pygame.sprite.Sprite):
         self.collision(self.obstacle_sprites, 'horizontal')
         self.collision(self.movable_sprites, 'horizontal')
 
+        if self.direction.magnitude() != 0:
+            self.direction = self.direction.normalize()
+
         self.hitbox.y += self.direction.y * speed
         self.collision(self.obstacle_sprites, 'vertical')
         self.collision(self.movable_sprites, 'vertical')
+
         self.rect.center = self.hitbox.center
 
     def collision(self, sprites, direction):
+        if self.direction.magnitude() != 0:
+            self.direction = self.direction.normalize()
+
         if direction == 'horizontal':
             for sprite in sprites:
                 if sprite.hitbox.colliderect(self.hitbox):
