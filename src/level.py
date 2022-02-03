@@ -18,6 +18,7 @@ class Level:
         # sprite group setup
         self.visible_sprites = pygame.sprite.Group()
         self.obstacle_sprites = pygame.sprite.Group()
+        self.destructible_sprites = pygame.sprite.Group()
         self.movable_sprites = pygame.sprite.Group()
 
         # sprite setup
@@ -28,14 +29,19 @@ class Level:
             for col_index, col in enumerate(row):
                 x = col_index * TILESIZE
                 y = row_index * TILESIZE
-                if col == 't':
+
+                if col == '-':
                     Tile((x, y), (self.visible_sprites, self.obstacle_sprites))
-                if col == 'l':
+                if col == '|':
                     Tile((x, y), (self.visible_sprites, self.obstacle_sprites))
+
+                if col == '1':
+                    Tile((x, y), (self.visible_sprites, self.destructible_sprites))
+
                 if col == 'p':
                     self.paddle = Paddle((x, y), (self.visible_sprites, self.movable_sprites), self.obstacle_sprites)
                 if col == 'b':
-                    self.ball = Ball((x, y), (self.visible_sprites,), self.obstacle_sprites, self.movable_sprites)
+                    self.ball = Ball((x, y), (self.visible_sprites,), self.obstacle_sprites, self.movable_sprites, self.destructible_sprites)
 
     def run(self):
         # update and draw the game
