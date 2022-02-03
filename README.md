@@ -2,8 +2,10 @@
 
 My little Krakout clone called Pyout written in Python 3
 
-![](./pygame_04.gif)
+![](./pygame_05.gif)
 
-![](./pygame_02.gif)
+pygame_04.mp4
 
-![](./pygame_01.gif)
+pygame_02.mp4
+
+pygame_01.mp4
