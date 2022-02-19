@@ -31,9 +31,21 @@ class Level:
                 y = row_index * TILESIZE
 
                 if col == '-':
-                    Tile((x, y), './graphics/test/s6.png', (self.visible_sprites, self.obstacle_sprites))
+                    Tile((x, y), './graphics/test/wall_horizontal.png', (self.visible_sprites, self.obstacle_sprites))
+                if col == '[':
+                    Tile((x, y), './graphics/test/wall_horizontal_left.png', (self.visible_sprites, self.obstacle_sprites))
+                if col == ']':
+                    Tile((x, y), './graphics/test/wall_horizontal_right.png', (self.visible_sprites, self.obstacle_sprites))
                 if col == '|':
-                    Tile((x, y), './graphics/test/s6.png', (self.visible_sprites, self.obstacle_sprites))
+                    Tile((x, y), './graphics/test/wall_vertical.png', (self.visible_sprites, self.obstacle_sprites))
+                if col == '/':
+                    Tile((x, y), './graphics/test/wall_top_left.png', (self.visible_sprites, self.obstacle_sprites))
+                if col == '\\':
+                    Tile((x, y), './graphics/test/wall_bottom_left.png', (self.visible_sprites, self.obstacle_sprites))
+                if col == '<':
+                    Tile((x, y), './graphics/test/wall_vertical_top.png', (self.visible_sprites, self.obstacle_sprites))
+                if col == '>':
+                    Tile((x, y), './graphics/test/wall_vertical_bottom.png', (self.visible_sprites, self.obstacle_sprites))
                 if col == 'r':
                     Tile((x, y), './graphics/test/stone_red.png', (self.visible_sprites, self.destructible_sprites))
                 if col == 'y':
