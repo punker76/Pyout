@@ -27,7 +27,7 @@ class Game:
                     sys.exit()
 
             # clear screen
-            self.screen.fill('black')
+            self.screen.fill((25, 25, 25))
 
             self.level.run()
 

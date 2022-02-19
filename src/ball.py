@@ -16,8 +16,8 @@ class Ball(pygame.sprite.Sprite):
         self.rect.size = self.image.get_size()
         self.hitbox = self.rect
 
-        self.direction = pygame.math.Vector2(-1, -1)
-        self.speed = random.randrange(4, 8)
+        self.direction = pygame.math.Vector2(-1, 1)
+        self.speed = random.randrange(6, 8)
 
         self.obstacle_sprites = obstacle_sprites
         self.movable_sprites = movable_sprites

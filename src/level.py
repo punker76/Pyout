@@ -25,23 +25,28 @@ class Level:
         self.create_map()
 
     def create_map(self):
-        for row_index, row in enumerate(LEVEL_MAP):
+        for row_index, row in enumerate(LEVEL_MAP_001):
             for col_index, col in enumerate(row):
                 x = col_index * TILESIZE
                 y = row_index * TILESIZE
 
                 if col == '-':
-                    Tile((x, y), (self.visible_sprites, self.obstacle_sprites))
+                    Tile((x, y), './graphics/test/s6.png', (self.visible_sprites, self.obstacle_sprites))
                 if col == '|':
-                    Tile((x, y), (self.visible_sprites, self.obstacle_sprites))
-
-                if col == '1':
-                    Tile((x, y), (self.visible_sprites, self.destructible_sprites))
+                    Tile((x, y), './graphics/test/s6.png', (self.visible_sprites, self.obstacle_sprites))
+                if col == 'r':
+                    Tile((x, y), './graphics/test/stone_red.png', (self.visible_sprites, self.destructible_sprites))
+                if col == 'y':
+                    Tile((x, y), './graphics/test/stone_yellow.png', (self.visible_sprites, self.destructible_sprites))
 
                 if col == 'p':
                     self.paddle = Paddle((x, y), (self.visible_sprites, self.movable_sprites), self.obstacle_sprites)
                 if col == 'b':
-                    self.ball = Ball((x, y), (self.visible_sprites,), self.obstacle_sprites, self.movable_sprites, self.destructible_sprites)
+                    self.ball = Ball((x, y),
+                                     (self.visible_sprites,),
+                                     self.obstacle_sprites,
+                                     self.movable_sprites,
+                                     self.destructible_sprites)
 
     def run(self):
         # update and draw the game
