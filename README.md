@@ -2,7 +2,7 @@
 
 My little Krakout clone called Pyout written in Python 3
 
-![](./pygame_05.gif)
+![](./pyout_07.gif)
 
 https://user-images.githubusercontent.com/658431/152443453-709cbc75-9b40-432b-9bfc-b8d7a9d1406d.mp4
 
