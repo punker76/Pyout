@@ -5,6 +5,7 @@ import pygame
 
 from settings import *
 from level import Level
+from menu import Menu, NEW_GAME, EXIT
 
 
 class Game:
@@ -16,20 +17,36 @@ class Game:
         pygame.display.set_caption('Pyout')
         self.clock = pygame.time.Clock()
 
-        self.level = Level()
+        self.menu = Menu()
+        self.level = None  # created when a new game starts
+
+    def quit(self):
+        print("Pyout terminated")
+        pygame.quit()
+        sys.exit()
 
     def run(self):
         while True:
             for event in pygame.event.get():
-                if event.type == pygame.QUIT or event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                    print("Pyout terminated")
-                    pygame.quit()
-                    sys.exit()
+                if event.type == pygame.QUIT:
+                    self.quit()
+                if self.level is None:
+                    action = self.menu.handle_event(event)
+                    if action == NEW_GAME:
+                        self.level = Level()
+                    elif action == EXIT:
+                        self.quit()
+                elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                    # back to the start screen
+                    self.level = None
 
             # clear screen
             self.screen.fill((25, 25, 25))
 
-            self.level.run()
+            if self.level is None:
+                self.menu.draw()
+            else:
+                self.level.run()
 
             # update screen
             # pygame.display.update() # allows to update a portion of the screen, instead of the entire area of the screen. Passing no arguments, updates the entire display
