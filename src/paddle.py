@@ -4,12 +4,12 @@ from settings import *
 
 
 class Paddle(pygame.sprite.Sprite):
-    def __init__(self, pos, groups, obstacle_sprites):
+    def __init__(self, pos, groups, obstacle_sprites, theme_dir):
         super().__init__()
         for g in groups:
             g.add(self)
 
-        self.image = pygame.image.load('./graphics/test/paddleBlu.png').convert_alpha()
+        self.image = pygame.image.load(f'{theme_dir}/paddle.png').convert_alpha()
         self.image = pygame.transform.scale(self.image, (TILESIZE, self.image.get_height()))
         self.image = pygame.transform.rotate(self.image, -90)
         self.rect = self.image.get_rect()

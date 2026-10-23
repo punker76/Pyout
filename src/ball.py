@@ -5,12 +5,12 @@ from settings import *
 
 
 class Ball(pygame.sprite.Sprite):
-    def __init__(self, pos, groups, obstacle_sprites, movable_sprites, destructible_sprites):
+    def __init__(self, pos, groups, obstacle_sprites, movable_sprites, destructible_sprites, theme_dir):
         super().__init__()
         for g in groups:
             g.add(self)
 
-        self.image = pygame.image.load('./graphics/test/ballBlue.png').convert_alpha()
+        self.image = pygame.image.load(f'{theme_dir}/ball.png').convert_alpha()
         self.rect = self.image.get_rect()
         self.rect.center = pygame.Rect(pos, (TILESIZE, TILESIZE)).center
         self.rect.size = self.image.get_size()

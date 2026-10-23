@@ -8,7 +8,8 @@ from debug import debug
 
 
 class Level:
-    def __init__(self):
+    def __init__(self, theme='metal'):
+        self.theme_dir = f'./graphics/themes/{theme}'
         self.paddle = None
         self.ball = None
 
@@ -31,34 +32,36 @@ class Level:
                 y = row_index * TILESIZE
 
                 if col == '-':
-                    Tile((x, y), './graphics/test/wall_horizontal.png', (self.visible_sprites, self.obstacle_sprites))
+                    Tile((x, y), f'{self.theme_dir}/wall_horizontal.png', (self.visible_sprites, self.obstacle_sprites))
                 if col == '[':
-                    Tile((x, y), './graphics/test/wall_horizontal_left.png', (self.visible_sprites, self.obstacle_sprites))
+                    Tile((x, y), f'{self.theme_dir}/wall_horizontal_left.png', (self.visible_sprites, self.obstacle_sprites))
                 if col == ']':
-                    Tile((x, y), './graphics/test/wall_horizontal_right.png', (self.visible_sprites, self.obstacle_sprites))
+                    Tile((x, y), f'{self.theme_dir}/wall_horizontal_right.png', (self.visible_sprites, self.obstacle_sprites))
                 if col == '|':
-                    Tile((x, y), './graphics/test/wall_vertical.png', (self.visible_sprites, self.obstacle_sprites))
+                    Tile((x, y), f'{self.theme_dir}/wall_vertical.png', (self.visible_sprites, self.obstacle_sprites))
                 if col == '/':
-                    Tile((x, y), './graphics/test/wall_top_left.png', (self.visible_sprites, self.obstacle_sprites))
+                    Tile((x, y), f'{self.theme_dir}/wall_top_left.png', (self.visible_sprites, self.obstacle_sprites))
                 if col == '\\':
-                    Tile((x, y), './graphics/test/wall_bottom_left.png', (self.visible_sprites, self.obstacle_sprites))
+                    Tile((x, y), f'{self.theme_dir}/wall_bottom_left.png', (self.visible_sprites, self.obstacle_sprites))
                 if col == '<':
-                    Tile((x, y), './graphics/test/wall_vertical_top.png', (self.visible_sprites, self.obstacle_sprites))
+                    Tile((x, y), f'{self.theme_dir}/wall_vertical_top.png', (self.visible_sprites, self.obstacle_sprites))
                 if col == '>':
-                    Tile((x, y), './graphics/test/wall_vertical_bottom.png', (self.visible_sprites, self.obstacle_sprites))
+                    Tile((x, y), f'{self.theme_dir}/wall_vertical_bottom.png', (self.visible_sprites, self.obstacle_sprites))
                 if col == 'r':
-                    Tile((x, y), './graphics/test/stone_red.png', (self.visible_sprites, self.destructible_sprites))
+                    Tile((x, y), f'{self.theme_dir}/stone_red.png', (self.visible_sprites, self.destructible_sprites))
                 if col == 'y':
-                    Tile((x, y), './graphics/test/stone_yellow.png', (self.visible_sprites, self.destructible_sprites))
+                    Tile((x, y), f'{self.theme_dir}/stone_yellow.png', (self.visible_sprites, self.destructible_sprites))
 
                 if col == 'p':
-                    self.paddle = Paddle((x, y), (self.visible_sprites, self.movable_sprites), self.obstacle_sprites)
+                    self.paddle = Paddle((x, y), (self.visible_sprites, self.movable_sprites), self.obstacle_sprites,
+                                     self.theme_dir)
                 if col == 'b':
                     self.ball = Ball((x, y),
                                      (self.visible_sprites,),
                                      self.obstacle_sprites,
                                      self.movable_sprites,
-                                     self.destructible_sprites)
+                                     self.destructible_sprites,
+                                     self.theme_dir)
 
     def run(self):
         # update and draw the game
